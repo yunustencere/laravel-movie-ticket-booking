@@ -34,7 +34,7 @@ $ php artisan passport:install
 to create passport clients, at the bottom of your .env file, fill the fields with your newly created personal access client credentials like:
 
 ```
-PASSPORT_PERSONAL_ACCESS_CLIENT_ID=6
+PASSPORT_PERSONAL_ACCESS_CLIENT_ID=2
 PASSPORT_PERSONAL_ACCESS_CLIENT_SECRET=JqRmyrg9xIIBmAVC2KiwY6KUZhmSDuEOeCQl2OJy
 ```
 
