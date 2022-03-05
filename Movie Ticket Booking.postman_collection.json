@@ -1,0 +1,569 @@
+{
+	"info": {
+		"_postman_id": "e75ffb0a-ce58-4933-8f16-927c175dbade",
+		"name": "Movie Ticket Booking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Yunus11\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Yunus11\",\r\n    \"email\": \"baytencere11@gmail.com\",\r\n    \"password\": \"123456\",\r\n    \"password_confirmation\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI2IiwianRpIjoiZGM2MjQ3NWEzYzBiOGRkYThlZWVmMzk1MzRmZjQ5MjQ3N2RiYjZkMDAzMTZkNzZkMzU0MjRjMWQwY2VhZTIzNjI0YTJkMWQ1NzllOThiNjciLCJpYXQiOjE2NDYzMDU5MzkuNjg4MTg3LCJuYmYiOjE2NDYzMDU5MzkuNjg4MTkxLCJleHAiOjE2NjIyMDM1MzkuNjgzOTQ5LCJzdWIiOiIxMiIsInNjb3BlcyI6W119.OeEpBp_DC24p5rdfbOasudjf5AAAP_pySisA99J-DlzLxvk36JV67ioUfqBszTlWLxXq59VcJY_JRLaQdLMbewWtTbBgwIiMJx_2Su7M7AhCiZt2G1Glovb5dv37uH4dRYMCLddic4hI7Bb6kymwh5t1B7wjooMwlRNQ-UwiciH83uCtQk_PqmFaKv2kUPScVA0NNEo2XP8jy3YIvtylGpDgJutXt1cP3N48Xj2Xlg2ApWNaFTYeGwKvDxyK8QM55P8GUhYzvjxGY-SCDSKMlSiriS1II9HEZwYfYA-leW52sa1leb9fF-cnsgAb7L7Qzu4je5TW3d3M9BXeUcPVVQObysL2QkxHRQHLReySZYn3GGtcoKQmBdMV-iEoxYoesSF0V751vnovz8REZKne3ZMkOaHA-c2S6eDYzZTTdJD9XlSymfNMLe9NgKi-8u5ynHMMUPl3tcJuF13XWwIVSKzKJE3GWeK7kcFegduZQNIfnG16hD1oU-NmPkkk4mqlJdHWlHP1HLgnCmsJrKPBk6nw_Aq63jh0DGlCvOMqC7x3v3k-meiKepiBj8kS1IdSt-DmYxPLzlpiqcKSOYFx6MF7_nYanab_al_q04iG95YgwXT8XUh4WUYet-VEywDKqVMJD2wSgLMpICbH7F4l2aJpd4HNCKNNsXzHFvI8QIA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Yunus3\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "General",
+			"item": [
+				{
+					"name": "Cities",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI2IiwianRpIjoiODgwNmE4YWQ0YzE1ZDk0YjZkMzE4MjJiZjgxODgzODgzNDkyNzVmZGFhMzE2NzY5ZWMxYWIyY2FjOTQ3N2U0Zjg3OGIwYjdjMDNlMzQ5NGUiLCJpYXQiOjE2NDYzMDg3MTEuODM0MTY5LCJuYmYiOjE2NDYzMDg3MTEuODM0MTczLCJleHAiOjE2NjIyMDYzMTEuODI5MDM0LCJzdWIiOiIxMiIsInNjb3BlcyI6W119.eOsZrr3U31wFBItxUvtmT6laNXhQ_d7KyjNwS22gegtn4tFEs1DlfWswXPE5uXXvVT74JWEOejZLrJE9p13iPh0Pw89FZvjxAy0p3lU6wxgXRJRUIy7d1NjIgAQD93Yhm64bR9t9pluLggJPk7G--DHku0SF7HJv91dgx6Mntv4vt9NOAuMNRGPdX9-x7xtXvmPyeA7olGhj6jFzGLXcuWPhe9GJcNOkl1X50qK2OThTKlxSTqCubK2RJMaQlbQ1xCWLRlQ7aPq6DMcH0PONHaPoG1Q76y2fSIN9Dwm5_AGm7A4lkGxYkA58dm9VSifnjkgqsYyONzCnPAgZYiBBubpvFtSeYvma7RanfKOqDRN3zuYlHi8n2xgmg2Hzjb407eyqfSsUu-fftYhhxy5ZwOWCdKfIBaBW46PohtoFaU1ZemwqkQvFm3YEgPpIh-c2GghwpaVdmrcABpWg-bPW_88Lwj_ATyT8As-jbTk3JwRQzJVTMTCh-0veriInO8RQB_9Tem4HlnfTRonDCDClYyqN3kiOdeeTBEOZTM_Em6nwxx8c3MXmVG35fJLJSYLe4VNOug3-cutGrOoKr4_EqpXP17MuaRgIbLqEwS-cbhQUv43MTK6pgR1PgO3pPWNAt58D_FKf1-YjRhf3AAq5pxIFJPyZqbxk3QIUEVFjBAE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/general/cities",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"general",
+								"cities"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cinema",
+			"item": [
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/cinema",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"cinema"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"city_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/cinema/filter",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"cinema",
+								"filter"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI2IiwianRpIjoiY2Y3MDQ0OGQ4MjU4ODM0ZjVlMzAzNzI4NWJmMjM5Y2U3ZWEzZWQ4OTc4MWE3OTliNTIyM2JlMzIzMjNiN2VhNzRiMTI0NjY4NWZmZGZjOTAiLCJpYXQiOjE2NDYzODk3MTEuNjMyNDU5LCJuYmYiOjE2NDYzODk3MTEuNjMyNDYyLCJleHAiOjE2NjIyODczMTEuNjI2OTM4LCJzdWIiOiIxMiIsInNjb3BlcyI6W119.k90X7lxfBf1q-Te_LtxQqjjPPCLzJHEWZ6a80xXrmFYJz3P1jSW5RQ4ppP1PXw-SbJfPaBB47hJKHVB4lFdOEORRYSSQswRae9Rm1HvQeUPArcOUVbQVpCIs7YxvGsdJG-lsKuBnP9a9t4n90vM0BrXjLpsqOPterLxYENPizo8ekzl73mJ8vCVY6LIaEjhRgUURkBFStg_t1u6IDrPvDPvnQENnZns4Y-2l6Y-e2F2FMxHyqt0p7dQtiHqT57Gbw7eN7yKfvRWTB9QDvacdqjEXFHFz6xeP_BTveJMbalUMmsVYw5rAIAcVzKvZHRmrItWGMi9ePd8mxpMk95CMmKG-8gSKSnyoGVzQUorSl_L94WJtvZLAaYz0bWNi5km3PZsQ8QR65L6GN0zl5z8KSzMMsNzk92cdMlJ27pxpatdx7I3oKfxkPrCxVd_D8Yg-IVeMMJX1li5BOkOnS881eMp2Ld_BWPK0tgKMRDFgMsiBwqXOuAupIkGGPh1mUZgxOwYmwsrOqXqhvFcblX9pFdNT9D7i77mqqCPJ4WGrRhYi1kS_Qrrhmm1aA26YbbYBiJGwyZnWN79MXm1kCxiXP8D8xvio6R2AVrT5s4YoiUow6CZdL1vlmYN3KV3b_xUUYDYoJK2rEsiwyBLeF68eisJhpwgz3tNhFy0PVT9fWXc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Test Cinema Name",
+									"type": "text"
+								},
+								{
+									"key": "city_id",
+									"value": "42",
+									"type": "text"
+								},
+								{
+									"key": "movie_ids[]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "movie_ids[]",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/cinema",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"cinema"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Destroy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI2IiwianRpIjoiODgwNmE4YWQ0YzE1ZDk0YjZkMzE4MjJiZjgxODgzODgzNDkyNzVmZGFhMzE2NzY5ZWMxYWIyY2FjOTQ3N2U0Zjg3OGIwYjdjMDNlMzQ5NGUiLCJpYXQiOjE2NDYzMDg3MTEuODM0MTY5LCJuYmYiOjE2NDYzMDg3MTEuODM0MTczLCJleHAiOjE2NjIyMDYzMTEuODI5MDM0LCJzdWIiOiIxMiIsInNjb3BlcyI6W119.eOsZrr3U31wFBItxUvtmT6laNXhQ_d7KyjNwS22gegtn4tFEs1DlfWswXPE5uXXvVT74JWEOejZLrJE9p13iPh0Pw89FZvjxAy0p3lU6wxgXRJRUIy7d1NjIgAQD93Yhm64bR9t9pluLggJPk7G--DHku0SF7HJv91dgx6Mntv4vt9NOAuMNRGPdX9-x7xtXvmPyeA7olGhj6jFzGLXcuWPhe9GJcNOkl1X50qK2OThTKlxSTqCubK2RJMaQlbQ1xCWLRlQ7aPq6DMcH0PONHaPoG1Q76y2fSIN9Dwm5_AGm7A4lkGxYkA58dm9VSifnjkgqsYyONzCnPAgZYiBBubpvFtSeYvma7RanfKOqDRN3zuYlHi8n2xgmg2Hzjb407eyqfSsUu-fftYhhxy5ZwOWCdKfIBaBW46PohtoFaU1ZemwqkQvFm3YEgPpIh-c2GghwpaVdmrcABpWg-bPW_88Lwj_ATyT8As-jbTk3JwRQzJVTMTCh-0veriInO8RQB_9Tem4HlnfTRonDCDClYyqN3kiOdeeTBEOZTM_Em6nwxx8c3MXmVG35fJLJSYLe4VNOug3-cutGrOoKr4_EqpXP17MuaRgIbLqEwS-cbhQUv43MTK6pgR1PgO3pPWNAt58D_FKf1-YjRhf3AAq5pxIFJPyZqbxk3QIUEVFjBAE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/cinema",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"cinema"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddMovie",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI2IiwianRpIjoiODgwNmE4YWQ0YzE1ZDk0YjZkMzE4MjJiZjgxODgzODgzNDkyNzVmZGFhMzE2NzY5ZWMxYWIyY2FjOTQ3N2U0Zjg3OGIwYjdjMDNlMzQ5NGUiLCJpYXQiOjE2NDYzMDg3MTEuODM0MTY5LCJuYmYiOjE2NDYzMDg3MTEuODM0MTczLCJleHAiOjE2NjIyMDYzMTEuODI5MDM0LCJzdWIiOiIxMiIsInNjb3BlcyI6W119.eOsZrr3U31wFBItxUvtmT6laNXhQ_d7KyjNwS22gegtn4tFEs1DlfWswXPE5uXXvVT74JWEOejZLrJE9p13iPh0Pw89FZvjxAy0p3lU6wxgXRJRUIy7d1NjIgAQD93Yhm64bR9t9pluLggJPk7G--DHku0SF7HJv91dgx6Mntv4vt9NOAuMNRGPdX9-x7xtXvmPyeA7olGhj6jFzGLXcuWPhe9GJcNOkl1X50qK2OThTKlxSTqCubK2RJMaQlbQ1xCWLRlQ7aPq6DMcH0PONHaPoG1Q76y2fSIN9Dwm5_AGm7A4lkGxYkA58dm9VSifnjkgqsYyONzCnPAgZYiBBubpvFtSeYvma7RanfKOqDRN3zuYlHi8n2xgmg2Hzjb407eyqfSsUu-fftYhhxy5ZwOWCdKfIBaBW46PohtoFaU1ZemwqkQvFm3YEgPpIh-c2GghwpaVdmrcABpWg-bPW_88Lwj_ATyT8As-jbTk3JwRQzJVTMTCh-0veriInO8RQB_9Tem4HlnfTRonDCDClYyqN3kiOdeeTBEOZTM_Em6nwxx8c3MXmVG35fJLJSYLe4VNOug3-cutGrOoKr4_EqpXP17MuaRgIbLqEwS-cbhQUv43MTK6pgR1PgO3pPWNAt58D_FKf1-YjRhf3AAq5pxIFJPyZqbxk3QIUEVFjBAE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "cinema_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "movie_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/cinema/add-movie",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"cinema",
+								"add-movie"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RemoveMovie",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI2IiwianRpIjoiODgwNmE4YWQ0YzE1ZDk0YjZkMzE4MjJiZjgxODgzODgzNDkyNzVmZGFhMzE2NzY5ZWMxYWIyY2FjOTQ3N2U0Zjg3OGIwYjdjMDNlMzQ5NGUiLCJpYXQiOjE2NDYzMDg3MTEuODM0MTY5LCJuYmYiOjE2NDYzMDg3MTEuODM0MTczLCJleHAiOjE2NjIyMDYzMTEuODI5MDM0LCJzdWIiOiIxMiIsInNjb3BlcyI6W119.eOsZrr3U31wFBItxUvtmT6laNXhQ_d7KyjNwS22gegtn4tFEs1DlfWswXPE5uXXvVT74JWEOejZLrJE9p13iPh0Pw89FZvjxAy0p3lU6wxgXRJRUIy7d1NjIgAQD93Yhm64bR9t9pluLggJPk7G--DHku0SF7HJv91dgx6Mntv4vt9NOAuMNRGPdX9-x7xtXvmPyeA7olGhj6jFzGLXcuWPhe9GJcNOkl1X50qK2OThTKlxSTqCubK2RJMaQlbQ1xCWLRlQ7aPq6DMcH0PONHaPoG1Q76y2fSIN9Dwm5_AGm7A4lkGxYkA58dm9VSifnjkgqsYyONzCnPAgZYiBBubpvFtSeYvma7RanfKOqDRN3zuYlHi8n2xgmg2Hzjb407eyqfSsUu-fftYhhxy5ZwOWCdKfIBaBW46PohtoFaU1ZemwqkQvFm3YEgPpIh-c2GghwpaVdmrcABpWg-bPW_88Lwj_ATyT8As-jbTk3JwRQzJVTMTCh-0veriInO8RQB_9Tem4HlnfTRonDCDClYyqN3kiOdeeTBEOZTM_Em6nwxx8c3MXmVG35fJLJSYLe4VNOug3-cutGrOoKr4_EqpXP17MuaRgIbLqEwS-cbhQUv43MTK6pgR1PgO3pPWNAt58D_FKf1-YjRhf3AAq5pxIFJPyZqbxk3QIUEVFjBAE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "cinema_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "movie_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/cinema/remove-movie",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"cinema",
+								"remove-movie"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movie",
+			"item": [
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/movie",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"movie"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI2IiwianRpIjoiY2Y3MDQ0OGQ4MjU4ODM0ZjVlMzAzNzI4NWJmMjM5Y2U3ZWEzZWQ4OTc4MWE3OTliNTIyM2JlMzIzMjNiN2VhNzRiMTI0NjY4NWZmZGZjOTAiLCJpYXQiOjE2NDYzODk3MTEuNjMyNDU5LCJuYmYiOjE2NDYzODk3MTEuNjMyNDYyLCJleHAiOjE2NjIyODczMTEuNjI2OTM4LCJzdWIiOiIxMiIsInNjb3BlcyI6W119.k90X7lxfBf1q-Te_LtxQqjjPPCLzJHEWZ6a80xXrmFYJz3P1jSW5RQ4ppP1PXw-SbJfPaBB47hJKHVB4lFdOEORRYSSQswRae9Rm1HvQeUPArcOUVbQVpCIs7YxvGsdJG-lsKuBnP9a9t4n90vM0BrXjLpsqOPterLxYENPizo8ekzl73mJ8vCVY6LIaEjhRgUURkBFStg_t1u6IDrPvDPvnQENnZns4Y-2l6Y-e2F2FMxHyqt0p7dQtiHqT57Gbw7eN7yKfvRWTB9QDvacdqjEXFHFz6xeP_BTveJMbalUMmsVYw5rAIAcVzKvZHRmrItWGMi9ePd8mxpMk95CMmKG-8gSKSnyoGVzQUorSl_L94WJtvZLAaYz0bWNi5km3PZsQ8QR65L6GN0zl5z8KSzMMsNzk92cdMlJ27pxpatdx7I3oKfxkPrCxVd_D8Yg-IVeMMJX1li5BOkOnS881eMp2Ld_BWPK0tgKMRDFgMsiBwqXOuAupIkGGPh1mUZgxOwYmwsrOqXqhvFcblX9pFdNT9D7i77mqqCPJ4WGrRhYi1kS_Qrrhmm1aA26YbbYBiJGwyZnWN79MXm1kCxiXP8D8xvio6R2AVrT5s4YoiUow6CZdL1vlmYN3KV3b_xUUYDYoJK2rEsiwyBLeF68eisJhpwgz3tNhFy0PVT9fWXc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Test Movie 1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/movie",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"movie"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ticket",
+			"item": [
+				{
+					"name": "MyTickets",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI2IiwianRpIjoiY2Y3MDQ0OGQ4MjU4ODM0ZjVlMzAzNzI4NWJmMjM5Y2U3ZWEzZWQ4OTc4MWE3OTliNTIyM2JlMzIzMjNiN2VhNzRiMTI0NjY4NWZmZGZjOTAiLCJpYXQiOjE2NDYzODk3MTEuNjMyNDU5LCJuYmYiOjE2NDYzODk3MTEuNjMyNDYyLCJleHAiOjE2NjIyODczMTEuNjI2OTM4LCJzdWIiOiIxMiIsInNjb3BlcyI6W119.k90X7lxfBf1q-Te_LtxQqjjPPCLzJHEWZ6a80xXrmFYJz3P1jSW5RQ4ppP1PXw-SbJfPaBB47hJKHVB4lFdOEORRYSSQswRae9Rm1HvQeUPArcOUVbQVpCIs7YxvGsdJG-lsKuBnP9a9t4n90vM0BrXjLpsqOPterLxYENPizo8ekzl73mJ8vCVY6LIaEjhRgUURkBFStg_t1u6IDrPvDPvnQENnZns4Y-2l6Y-e2F2FMxHyqt0p7dQtiHqT57Gbw7eN7yKfvRWTB9QDvacdqjEXFHFz6xeP_BTveJMbalUMmsVYw5rAIAcVzKvZHRmrItWGMi9ePd8mxpMk95CMmKG-8gSKSnyoGVzQUorSl_L94WJtvZLAaYz0bWNi5km3PZsQ8QR65L6GN0zl5z8KSzMMsNzk92cdMlJ27pxpatdx7I3oKfxkPrCxVd_D8Yg-IVeMMJX1li5BOkOnS881eMp2Ld_BWPK0tgKMRDFgMsiBwqXOuAupIkGGPh1mUZgxOwYmwsrOqXqhvFcblX9pFdNT9D7i77mqqCPJ4WGrRhYi1kS_Qrrhmm1aA26YbbYBiJGwyZnWN79MXm1kCxiXP8D8xvio6R2AVrT5s4YoiUow6CZdL1vlmYN3KV3b_xUUYDYoJK2rEsiwyBLeF68eisJhpwgz3tNhFy0PVT9fWXc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/ticket/my-tickets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"ticket",
+								"my-tickets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI2IiwianRpIjoiY2Y3MDQ0OGQ4MjU4ODM0ZjVlMzAzNzI4NWJmMjM5Y2U3ZWEzZWQ4OTc4MWE3OTliNTIyM2JlMzIzMjNiN2VhNzRiMTI0NjY4NWZmZGZjOTAiLCJpYXQiOjE2NDYzODk3MTEuNjMyNDU5LCJuYmYiOjE2NDYzODk3MTEuNjMyNDYyLCJleHAiOjE2NjIyODczMTEuNjI2OTM4LCJzdWIiOiIxMiIsInNjb3BlcyI6W119.k90X7lxfBf1q-Te_LtxQqjjPPCLzJHEWZ6a80xXrmFYJz3P1jSW5RQ4ppP1PXw-SbJfPaBB47hJKHVB4lFdOEORRYSSQswRae9Rm1HvQeUPArcOUVbQVpCIs7YxvGsdJG-lsKuBnP9a9t4n90vM0BrXjLpsqOPterLxYENPizo8ekzl73mJ8vCVY6LIaEjhRgUURkBFStg_t1u6IDrPvDPvnQENnZns4Y-2l6Y-e2F2FMxHyqt0p7dQtiHqT57Gbw7eN7yKfvRWTB9QDvacdqjEXFHFz6xeP_BTveJMbalUMmsVYw5rAIAcVzKvZHRmrItWGMi9ePd8mxpMk95CMmKG-8gSKSnyoGVzQUorSl_L94WJtvZLAaYz0bWNi5km3PZsQ8QR65L6GN0zl5z8KSzMMsNzk92cdMlJ27pxpatdx7I3oKfxkPrCxVd_D8Yg-IVeMMJX1li5BOkOnS881eMp2Ld_BWPK0tgKMRDFgMsiBwqXOuAupIkGGPh1mUZgxOwYmwsrOqXqhvFcblX9pFdNT9D7i77mqqCPJ4WGrRhYi1kS_Qrrhmm1aA26YbbYBiJGwyZnWN79MXm1kCxiXP8D8xvio6R2AVrT5s4YoiUow6CZdL1vlmYN3KV3b_xUUYDYoJK2rEsiwyBLeF68eisJhpwgz3tNhFy0PVT9fWXc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "cinema_movie_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "seat_numbers[]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "seat_numbers[]",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/ticket",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"ticket"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

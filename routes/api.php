@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\ApiAuthController;
 use App\Http\Controllers\Cinema\CinemaController;
 use App\Http\Controllers\General\GeneralController;
 use App\Http\Controllers\Movie\MovieController;
+use App\Http\Controllers\Ticket\TicketController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,7 +30,6 @@ Route::group(['middleware' => ['cors', 'json.response']], function () {
 });
 
 Route::middleware('auth:api')->group(function () {
-    // our routes to be protected will go in here
     Route::post('/logout', [ApiAuthController::class, 'logout'])->name('logout.api');
 });
 
@@ -38,19 +38,25 @@ Route::group(['prefix' => 'general'], function () {
     Route::get('/cities', [GeneralController::class, 'cities']);
 });
 
-Route::group(['prefix' => 'movie'], function () {
-    Route::get('/', [MovieController::class, 'index']);
-    Route::post('/', [MovieController::class, 'store']);
-});
-
 Route::group(['prefix' => 'cinema'], function () {
     Route::get('/', [CinemaController::class, 'index']);
+    Route::get('/filter', [CinemaController::class, 'filter']);
     Route::post('/', [CinemaController::class, 'store'])->middleware('auth:api');
     Route::delete('/', [CinemaController::class, 'destroy'])->middleware('auth:api');
 
     Route::post('/add-movie', [CinemaController::class, 'addMovie'])->middleware('auth:api');
     Route::post('/remove-movie', [CinemaController::class, 'removeMovie'])->middleware('auth:api');
-    Route::get('/with-movies', [CinemaController::class, 'withMovies']);
+});
+
+Route::group(['prefix' => 'movie'], function () {
+    Route::get('/', [MovieController::class, 'index']);
+    Route::post('/', [MovieController::class, 'store'])->middleware('auth:api');
+});
+
+Route::group(['prefix' => 'ticket'], function () {
+    Route::get('/my-tickets', [TicketController::class, 'myTickets'])->middleware('auth:api');
+    Route::post('/', [TicketController::class, 'store'])->middleware('auth:api');
+    Route::delete('/', [TicketController::class, 'destroy'])->middleware('auth:api');
 });
 
 

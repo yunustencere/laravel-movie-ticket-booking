@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTasksTable extends Migration
+class CreateTicketsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateTasksTable extends Migration
      */
     public function up()
     {
-        Schema::create('tasks', function (Blueprint $table) {
+        Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 30);
-            $table->string('type', 30);
-            $table->string('country', 30)->nullable();
-            $table->json('amount')->nullable();
-            $table->json('prerequisites')->nullable()->default('[]');
+            $table->bigInteger('user_id');
+            $table->bigInteger('cinema_movie_id');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreateTasksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tasks');
+        Schema::dropIfExists('tickets');
     }
 }

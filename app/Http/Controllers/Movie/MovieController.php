@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Movie;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Movie\StoreRequest;
 use App\Models\Movie;
 use Illuminate\Http\Request;
 use App\Services\Movie\MovieServiceInterface;
@@ -27,7 +28,7 @@ class MovieController extends Controller
         }
     }
 
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         try {
             $movie = $this->service->store($request->all());

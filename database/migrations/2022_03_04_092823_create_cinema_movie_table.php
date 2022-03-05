@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCinemaMovie extends Migration
+class CreateCinemaMovieTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,9 @@ class CreateCinemaMovie extends Migration
     public function up()
     {
         Schema::create('cinema_movie', function (Blueprint $table) {
-            $table->integer('cinema_id');
-            $table->integer('movie_id');
+            $table->id();
+            $table->bigInteger('cinema_id');
+            $table->bigInteger('movie_id');
             $table->timestamps();
         });
     }

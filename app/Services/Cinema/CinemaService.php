@@ -12,6 +12,10 @@ class CinemaService implements CinemaServiceInterface
         return Cinema::all();
     }
 
+    public function filter(array $attributes)
+    {
+        return Cinema::filter($attributes)->with('movies')->get();
+    }
 
     public function store(array $attributes)
     {
@@ -28,7 +32,7 @@ class CinemaService implements CinemaServiceInterface
     public function addMovie(array $attributes)
     {
         $cinema = Cinema::where('id', $attributes['cinema_id'])->first();
-        $cinema_movies = $cinema->movies()->pluck('id')->toArray();
+        $cinema_movies = $cinema->movies()->pluck('movies.id')->toArray();
         if (in_array($attributes['movie_id'], $cinema_movies))
             throw new HttpResponseException(response()->json([
                 'errors' => "Film already exists in that cinema."
@@ -46,10 +50,5 @@ class CinemaService implements CinemaServiceInterface
             ], 422));
         $cinema->movies()->detach($attributes['movie_id']);
         return Cinema::where('id', $attributes['cinema_id'])->with('movies')->first();
-    }
-
-    public function withMovies()
-    {
-        return Cinema::with('movies')->get();
     }
 }

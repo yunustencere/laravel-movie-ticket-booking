@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Cinema;
 
 use App\Http\Controllers\Controller;
-use App\Models\Cinema;
-use Illuminate\Http\Request;
+use App\Http\Requests\Cinema\AddMovieRequest;
+use App\Http\Requests\Cinema\DestroyRequest;
+use App\Http\Requests\Cinema\FilterRequest;
+use App\Http\Requests\Cinema\RemoveMovieRequest;
+use App\Http\Requests\Cinema\StoreRequest;
 use App\Services\Cinema\CinemaServiceInterface;
 
 class CinemaController extends Controller
@@ -27,10 +30,10 @@ class CinemaController extends Controller
         }
     }
 
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         try {
-            $cinema = $this->service->store($request->all());
+            $cinema = $this->service->store($request->validated());
             return response()->json(['result' => 'success', 'cinema' => $cinema], 201);
         } catch (Throwable $th) {
             return $th;
@@ -38,7 +41,7 @@ class CinemaController extends Controller
         }
     }
 
-    public function destroy(Request $request)
+    public function destroy(DestroyRequest $request)
     {
         try {
             $this->service->destroy($request->id);
@@ -49,10 +52,10 @@ class CinemaController extends Controller
         }
     }
 
-    public function addMovie(Request $request)
+    public function addMovie(AddMovieRequest $request)
     {
         try {
-            $cinema = $this->service->addMovie($request->all());
+            $cinema = $this->service->addMovie($request->validated());
             return response()->json(['result' => 'success', 'cinema' => $cinema], 200);
         } catch (Throwable $th) {
             return $th;
@@ -60,10 +63,10 @@ class CinemaController extends Controller
         }
     }
 
-    public function removeMovie(Request $request)
+    public function removeMovie(RemoveMovieRequest $request)
     {
         try {
-            $cinemas = $this->service->removeMovie($request->all());
+            $cinemas = $this->service->removeMovie($request->validated());
             return response()->json(['result' => 'success', 'cinemas' => $cinemas], 200);
         } catch (Throwable $th) {
             return $th;
@@ -71,10 +74,10 @@ class CinemaController extends Controller
         }
     }
 
-    public function withMovies()
+    public function filter(FilterRequest $request)
     {
         try {
-            $cinemas = $this->service->withMovies();
+            $cinemas = $this->service->filter($request->validated());
             return response()->json(['result' => 'success', 'cinemas' => $cinemas], 200);
         } catch (Throwable $th) {
             return $th;
