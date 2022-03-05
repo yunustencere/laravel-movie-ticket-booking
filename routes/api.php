@@ -1,12 +1,10 @@
 <?php
 
-use App\Http\Controllers\TaskController;
 use App\Http\Controllers\Auth\ApiAuthController;
 use App\Http\Controllers\Cinema\CinemaController;
 use App\Http\Controllers\General\GeneralController;
 use App\Http\Controllers\Movie\MovieController;
 use App\Http\Controllers\Ticket\TicketController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,20 +55,4 @@ Route::group(['prefix' => 'ticket'], function () {
     Route::get('/my-tickets', [TicketController::class, 'myTickets'])->middleware('auth:api');
     Route::post('/', [TicketController::class, 'store'])->middleware('auth:api');
     Route::delete('/', [TicketController::class, 'destroy'])->middleware('auth:api');
-});
-
-
-
-
-
-
-
-Route::group(['prefix' => 'task'], function () {
-    Route::get('/', [TaskController::class, 'index']);
-    // Route::get('/{id}', [TaskController::class, 'show']);
-    Route::post('/', [TaskController::class, 'store']);
-    Route::put('/', [TaskController::class, 'update']);
-    Route::get('/getByOrder', [TaskController::class, 'getByOrder']);
-    // Route::put('/{id}', 'Task\TaskController@update');
-    // Route::delete('/{id}', 'Task\TaskController@destroy');
 });

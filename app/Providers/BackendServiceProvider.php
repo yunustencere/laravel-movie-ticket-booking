@@ -10,8 +10,6 @@ use App\Services\Movie\MovieService;
 use App\Services\Movie\MovieServiceInterface;
 use App\Services\Seat\SeatService;
 use App\Services\Seat\SeatServiceInterface;
-use App\Services\Task\TaskService;
-use App\Services\Task\TaskServiceInterface;
 use App\Services\Ticket\TicketService;
 use App\Services\Ticket\TicketServiceInterface;
 use Illuminate\Support\ServiceProvider;
@@ -25,7 +23,6 @@ class BackendServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(TaskServiceInterface::class, TaskService::class);
         $this->app->bind(GeneralServiceInterface::class, GeneralService::class);
         $this->app->bind(MovieServiceInterface::class, MovieService::class);
         $this->app->bind(CinemaServiceInterface::class, CinemaService::class);
