@@ -29,7 +29,6 @@ class TicketController extends Controller
             $tickets = $this->service->getTicketsByUserId(Auth::id());
             return response()->json(['result' => 'success', 'tickets' => $tickets], 200);
         } catch (Throwable $th) {
-            return $th;
             return response()->json(['result' => 'failure', 'error' => $th->getMessage()], 500);
         }
     }
@@ -40,7 +39,6 @@ class TicketController extends Controller
             $ticket = $this->service->store(array_merge($request->all(), ['user_id' => Auth::id()]));
             return response()->json(['result' => 'success', 'ticket' => $ticket], 201);
         } catch (Throwable $th) {
-            return $th;
             return response()->json(['result' => 'failure', 'error' => $th->getMessage()], 500);
         }
     }
