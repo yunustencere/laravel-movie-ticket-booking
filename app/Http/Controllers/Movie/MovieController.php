@@ -23,7 +23,6 @@ class MovieController extends Controller
             $movies = $this->service->getAll();
             return response()->json(['result' => 'success', 'movies' => $movies], 201);
         } catch (Throwable $th) {
-            return $th;
             return response()->json(['result' => 'failure', 'error' => $th->getMessage()], 500);
         }
     }
@@ -34,7 +33,6 @@ class MovieController extends Controller
             $movie = $this->service->store($request->all());
             return response()->json(['result' => 'success', 'movie' => $movie], 201);
         } catch (Throwable $th) {
-            return $th;
             return response()->json(['result' => 'failure', 'error' => $th->getMessage()], 500);
         }
     }
