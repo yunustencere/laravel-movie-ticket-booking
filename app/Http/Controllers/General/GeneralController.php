@@ -22,7 +22,6 @@ class GeneralController extends Controller
             $cities = $this->service->cities();
             return response()->json(['result' => 'success', 'cities' => $cities], 201);
         } catch (Throwable $th) {
-            return $th;
             return response()->json(['result' => 'failure', 'error' => $th->getMessage()], 500);
         }
     }
