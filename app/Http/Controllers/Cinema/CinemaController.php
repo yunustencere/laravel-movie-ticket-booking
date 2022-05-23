@@ -25,7 +25,6 @@ class CinemaController extends Controller
             $cinemas = $this->service->getAll();
             return response()->json(['result' => 'success', 'cinemas' => $cinemas], 200);
         } catch (Throwable $th) {
-            return $th;
             return response()->json(['result' => 'failure', 'error' => $th->getMessage()], 500);
         }
     }
@@ -36,7 +35,6 @@ class CinemaController extends Controller
             $cinema = $this->service->store($request->validated());
             return response()->json(['result' => 'success', 'cinema' => $cinema], 201);
         } catch (Throwable $th) {
-            return $th;
             return response()->json(['result' => 'failure', 'error' => $th->getMessage()], 500);
         }
     }
@@ -47,7 +45,6 @@ class CinemaController extends Controller
             $this->service->destroy($request->id);
             return response()->json(['result' => 'success'], 200);
         } catch (Throwable $th) {
-            return $th;
             return response()->json(['result' => 'failure', 'error' => $th->getMessage()], 500);
         }
     }
@@ -58,7 +55,6 @@ class CinemaController extends Controller
             $cinema = $this->service->addMovie($request->validated());
             return response()->json(['result' => 'success', 'cinema' => $cinema], 200);
         } catch (Throwable $th) {
-            return $th;
             return response()->json(['result' => 'failure', 'error' => $th->getMessage()], 500);
         }
     }
@@ -69,7 +65,6 @@ class CinemaController extends Controller
             $cinemas = $this->service->removeMovie($request->validated());
             return response()->json(['result' => 'success', 'cinemas' => $cinemas], 200);
         } catch (Throwable $th) {
-            return $th;
             return response()->json(['result' => 'failure', 'error' => $th->getMessage()], 500);
         }
     }
@@ -80,7 +75,6 @@ class CinemaController extends Controller
             $cinemas = $this->service->filter($request->validated());
             return response()->json(['result' => 'success', 'cinemas' => $cinemas], 200);
         } catch (Throwable $th) {
-            return $th;
             return response()->json(['result' => 'failure', 'error' => $th->getMessage()], 500);
         }
     }
